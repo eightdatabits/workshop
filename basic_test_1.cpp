@@ -1,8 +1,14 @@
 namespace zoox {
- 
-class MyTest : public ::testing::Test {
+
+// Use TEST_F for classes and functions with side effects ================
+  
+class MyUut {
+  // ...
+};
+  
+class MyUutTest : public ::testing::Test {
 public:
-  MyTest() : uut() {}
+  MyUutTest() : uut() {}
  
 protected:
   virtual void SetUp();
@@ -11,11 +17,21 @@ protected:
   MyUut uut;
 };
  
-void MyTest::SetUp() {}
+void MyUutTest::SetUp() {}
  
-void MyTest::TearDown() {}
+void MyUutTest::TearDown() {}
  
-TEST_F(MyTest, CheckOneThing) {
+TEST_F(MyUutTest, CheckOneCase) {
+  // ...
+}
+
+// Use TEST for pure functions ==========================================
+  
+float mySqr(float a) {
+  return a * a;
+}
+
+TEST(mySqrTest, CheckOneCase) {
   // ...
 }
  
