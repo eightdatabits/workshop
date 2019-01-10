@@ -8,12 +8,13 @@ class MyUut {
   
 class MyUutTest : public ::testing::Test {
 public:
-  MyUutTest() : uut() {}
+  MyUutTest() : obj(), uut(obj) {}
  
 protected:
   virtual void SetUp();
   virtual void TearDown();
- 
+  
+  MockObject obj;
   MyUut uut;
 };
  
